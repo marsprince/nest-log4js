@@ -1,11 +1,15 @@
 {
   "name": "nest-log4js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "description",
   "author": "liujia",
   "license": "MIT",
   "scripts": {
     "build": "tsc -p tsconfig.json && cp *.md dist && cp LICENSE dist && cp package.json dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marsprince/nest-log4js"
   },
   "dependencies": {
     "log4js": "^3.0.5"
