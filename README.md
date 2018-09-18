@@ -97,3 +97,7 @@ LOG4JS_REQUEST_LOGGER
 LOG4JS_RESPONSE_LOGGER
 
 LOG4JS_ERROR_LOGGER 
+
+### Tips
+
+If you use pm2, please look [clustering](https://log4js-node.github.io/log4js-node/clustering.html)
