@@ -15,9 +15,9 @@ export abstract class Log4jsInterceptorAbstract implements NestInterceptor {
     call$: Observable<any>,
   ): Observable<any> {
     const httpRequest = context.switchToHttp().getRequest();
-    this.requestLogger.info(this.requestFormat(httpRequest));
     return call$.pipe(
       tap(httpResponse => {
+        this.requestLogger.info(this.requestFormat(httpRequest));
         this.responseLogger.info(this.responseFormat(httpResponse));
       }),
     );
