@@ -11,7 +11,7 @@ export class Log4jsInterceptor extends Log4jsInterceptorAbstract {
     @Inject(LOG4JS_REQUEST_LOGGER) protected requestLogger: Logger,
     @Inject(LOG4JS_RESPONSE_LOGGER) protected responseLogger: Logger,
   ) {
-    super(responseLogger, responseLogger);
+    super(requestLogger, responseLogger);
   }
 
   intercept(
