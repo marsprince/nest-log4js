@@ -1,4 +1,4 @@
-import { LOG4JS_PROVIDER, LOG4JS_CONFIG, LOG4JS_REQUEST_LOGGER, LOG4JS_RESPONSE_LOGGER, LOG4JS_ERROR_LOGGER } from './log4js.constant';
+import { LOG4JS_PROVIDER, LOG4JS_CONFIG, LOG4JS_REQUEST_LOGGER, LOG4JS_RESPONSE_LOGGER, LOG4JS_ERROR_LOGGER, LOG4JS_LOGGER } from './log4js.constant';
 import { configure, Log4js, Logger, Configuration } from 'log4js';
 
 export const Log4jsProvider = [
@@ -8,6 +8,13 @@ export const Log4jsProvider = [
       return configure(config);
     },
     inject: [LOG4JS_CONFIG],
+  },
+  {
+    provide: LOG4JS_LOGGER,
+    useFactory: (log4js: Log4js): Logger => {
+      return log4js.getLogger('logger');
+    },
+    inject: [LOG4JS_PROVIDER],
   },
   {
     provide: LOG4JS_REQUEST_LOGGER,
