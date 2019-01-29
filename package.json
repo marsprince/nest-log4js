@@ -1,15 +1,18 @@
 {
-  "name": "nest-log4js",
+  "name": "@hyman/nest-log4js",
   "version": "0.0.4",
   "description": "description",
-  "author": "liujia",
+  "author": "hu.guihai@qq.com",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json && cp *.md dist && cp LICENSE dist && cp package.json dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marsprince/nest-log4js"
+    "url": "git+https://github.com/GuihaiHU/nest-log4js"
   },
   "dependencies": {
     "circular-json-es6": "^2.0.2",
