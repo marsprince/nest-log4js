@@ -4,7 +4,7 @@ This's a [log4js](https://github.com/log4js-node/log4js-node) module for [Nest](
 ## Installation
 
 ```bash
-$ npm install nest-log4js
+$ npm install @hyman/nest-log4js
 ```
 
 ## Quick Start
@@ -18,7 +18,7 @@ If you want to Manual logger, see provider bottom, inject and log.
 >app.module.ts
 
 ```ts
-import { Log4jsModule } from 'nest-log4js';
+import { Log4jsModule } from '@hyman/nest-log4js';
 @Module({
     imports: [
         ...
@@ -28,6 +28,21 @@ import { Log4jsModule } from 'nest-log4js';
 export class AppModule {
 }
 
+```
+
+```ts
+@Module({
+  imports: [
+    ConfigModule.load(path.resolve(__dirname, '..', 'config', '*.{ts,js}')),
+    Log4jsModule.forRootAsync({
+      useFactory: (config: ConfigService) => config.get('log'),
+      inject: [ConfigService],
+    }),
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
 ```
 [Optional Settings](https://log4js-node.github.io/log4js-node/api.html)
 is inspired by official settings
