@@ -1,10 +1,10 @@
 ## Description
-This's a [log4js](https://github.com/log4js-node/log4js-node) module for [Nest](https://github.com/nestjs/nest).
+This's a [log4js](https://github.com/log4js-node/log4js-node) module for [Nest@6](https://github.com/nestjs/nest) w.
 
 ## Installation
 
 ```bash
-$ npm install @hyman/nest-log4js
+$ npm install nestjs-log4js
 ```
 
 ## Quick Start
