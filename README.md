@@ -1,5 +1,5 @@
 ## Description
-This's a [log4js](https://github.com/log4js-node/log4js-node) module for [Nest@6](https://github.com/nestjs/nest) w.
+This's a [log4js](https://github.com/log4js-node/log4js-node) module for [Nest@6](https://github.com/nestjs/nest).
 
 ## Installation
 
@@ -18,7 +18,7 @@ If you want to Manual logger, see provider bottom, inject and log.
 >app.module.ts
 
 ```ts
-import { Log4jsModule } from '@hyman/nest-log4js';
+import { Log4jsModule } from 'nestjs-log4js';
 @Module({
     imports: [
         ...
