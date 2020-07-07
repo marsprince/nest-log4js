@@ -1,4 +1,4 @@
-import { NestInterceptor, ExecutionContext } from '@nestjs/common';
+import { NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Logger } from 'log4js';
@@ -12,10 +12,10 @@ export abstract class Log4jsInterceptorAbstract implements NestInterceptor {
 
   intercept(
     context: ExecutionContext,
-    call$: Observable<any>,
+    next: CallHandler,
   ): Observable<any> {
     const httpRequest = context.switchToHttp().getRequest();
-    return call$.pipe(
+    return next.handle().pipe(
       tap(httpResponse => {
         this.requestLogger.info(this.requestFormat(httpRequest));
         this.responseLogger.info(this.responseFormat(httpResponse));

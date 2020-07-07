@@ -4,6 +4,7 @@ import { LOG4JS_CONFIG } from './log4js.constant';
 import { Log4jsService } from './log4js.service';
 import { Configuration } from 'log4js';
 import { Log4jsFilter } from './log4js.filter';
+import { Provider } from './log4js.interface';
 
 @Global()
 @Module({
@@ -34,6 +35,22 @@ export class Log4jsModule {
           useValue: configuration,
         },
       ],
+    };
+  }
+
+  static forRootAsync(configuration: Provider): DynamicModule {
+    return {
+      module: Log4jsModule,
+      providers: [{
+        provide: LOG4JS_CONFIG,
+        useFactory: configuration.useFactory,
+        inject: configuration.inject,
+      }],
+      exports: [{
+        provide: LOG4JS_CONFIG,
+        useFactory: configuration.useFactory,
+        inject: configuration.inject,
+      }],
     };
   }
 }

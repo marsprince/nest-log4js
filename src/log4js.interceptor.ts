@@ -1,4 +1,4 @@
-import { Injectable, ExecutionContext, Inject } from '@nestjs/common';
+import { Injectable, ExecutionContext, Inject, CallHandler } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { LOG4JS_REQUEST_LOGGER, LOG4JS_RESPONSE_LOGGER } from './log4js.constant';
 import { Logger } from 'log4js';
@@ -16,9 +16,9 @@ export class Log4jsInterceptor extends Log4jsInterceptorAbstract {
 
   intercept(
     context: ExecutionContext,
-    call$: Observable<any>,
+    next: CallHandler,
   ): Observable<any> {
-    return super.intercept(context, call$);
+    return super.intercept(context, next);
   }
 
   requestFormat(httpRequest: any): string {
